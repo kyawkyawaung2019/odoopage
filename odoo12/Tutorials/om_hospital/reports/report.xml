@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="report_patient_card"
+                string="Patient Card"
+                model="hospital.patient"
+                report_type="qweb-pdf"
+                menu="True"
+                name="om_hospital.report_patient"
+                file="om_hospital.report_patient"/>
+
+        <report id="report_patient_card_xls"
+                string="Patient Card Excel"
+                model="hospital.patient"
+                report_type="xlsx"
+                menu="True"
+                name="om_hospital.report_patient_xls"
+                file="om_hospital.report_patient_xls"/>
+
+        <report id="report_barcode"
+                string="Report Barcode"
+                model="hospital.patient"
+                report_type="qweb-pdf"
+                menu="True"
+                name="om_hospital.barcode_card"
+                file="om_hospital.barcode_card"/>
+
+        <report id="report_appointment_card"
+                string="Appointment Card"
+                model="hospital.appointment"
+                report_type="qweb-pdf"
+                menu="True"
+                name="om_hospital.report_appointment_card"
+                file="om_hospital.report_appointment_card"/>
+
+        <report id="report_appointment_card_xls"
+                string="Appointment Card Excel"
+                model="hospital.appointment"
+                report_type="xlsx"
+                menu="True"
+                name="om_hospital.report_appointment_xls"
+                file="om_hospital.report_appointment_xls"/>
+    </data>
+</odoo>

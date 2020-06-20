@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="customize_crm_case_form_view_oppor" model="ir.ui.view">
+    <field name="name">crm.lead.form.opportunity</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+    <field name="arch" type="xml">
+      <xpath expr="//form/header/field[@name='stage_id']" position="replace">
+                <field name="stage_id" widget="statusbar"
+                            options="{'clickable': '1', 'fold_field': 'fold'}"
+                            domain="['|', ('team_id', '=', team_id), ('team_id', '=', False)]"
+                            attrs="{'invisible': ['|',('active', '=', False)]}"/>
+              </xpath>
+
+      <xpath expr="//header/button[@name='action_set_won_rainbowman']" position="replace" >
+         <button name="action_set_won_rainbowman" string="QA Pass"
+                                type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|', ('active','=',False), ('probability', '=', 100)]}"/>
+      
+    </xpath>
+    <xpath expr="//header/button[@name='%(crm.crm_lead_lost_action)d']" position="replace" >
+
+    <button name="%(crm.crm_lead_lost_action)d" string="QA Fail"
+                                type="action" class="oe_highlight"
+                                context="{'default_lead_id': active_id}"
+                                attrs="{'invisible': [('active', '=', False),('probability', '&lt;', 100)]}"/>
+    </xpath>
+      <xpath expr="//notebook/page[@name='lead']" position="after">
+          <page string="Quality Testing">
+            <!-- <group string="Quality Testing Pass Or Fail"> -->
+              <!-- <button string="Quality Testing Check" name ="quality_test" type="object" class="oe_highlight" />
+              <field name="check_qc" invisible='1' /> -->
+              <!-- <field name="qc_test" widget="radio"/> -->
+            <!-- </group> -->
+            <group>
+              <field name="remark"/>
+            </group>
+          </page>
+      </xpath>
+    </field>
+  </record>
+   <!-- <record id="customize_crm_case_form_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.form.opportunity</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+              
+              <xpath expr="//form/header/field[@name='stage_id']" position="replace">
+                <field name="stage_id" widget="statusbar"
+                            options="{'clickable': '1', 'fold_field': 'fold'}"
+                            domain="['|', ('team_id', '=', team_id), ('team_id', '=', False)]"
+                            attrs="{'invisible': ['|',('active', '=', False),('qc_test','=',fail)]}"/>
+              </xpath>
+  </field>
+</record> -->
+
+
+</odoo>
+  

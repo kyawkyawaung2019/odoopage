@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+	<record id="customize_view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.customize.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//header/button[@name='action_assign']" position="after">
+            
+                <button name="button_qc" type="object" string="Quality Control Check" class="btn-info" attrs="{'invisible': [ ('state', '!=', 'check')]}"/>
+            
+   </xpath>
+     
+
+            <xpath expr="//header/field[@name='state']" position="replace">
+                <field name="state" widget="statusbar" statusbar_visible="draft,check,confirmed,partially_available,assigned,done" />
+            </xpath>
+
+            <xpath expr="//notebook/page[@name='extra']" position="after">
+                <page string="Quality Control Check" groups="mrp.group_mrp_manager">
+                    <group>
+                        <group >
+                            <field name="remark" attrs="{'readonly': [ ('state', 'not in', ['check'])]}"/>
+                           
+
+                           
+                        </group>
+                    </group>
+                </page>
+     
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
