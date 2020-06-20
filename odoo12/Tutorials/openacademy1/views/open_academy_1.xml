@@ -1,0 +1,22 @@
+<odoo>
+    <record model="ir.actions.act_window" id="course_list_action">
+        <field name="name">Courses</field>
+        <field name="res_model">open_academy_1.course</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o-view-nocontent-smiling-face">
+                Create the first course
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="main_open_academy_menu" name="Open Academy"/>
+
+    <menuitem id="open_academy_menu" name="Open Academy"
+              parent="main_open_academy_menu"/>
+
+    <menuitem id="course_menu" name="Course"
+              parent="open_academy_menu"
+              action="course_list_action"/>
+</odoo>
