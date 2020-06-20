@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_pos_reason_form" model="ir.actions.act_window">
+        <field name="name">Buying Reason</field>
+        <field name="res_model">pos.reason</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new Buying Reason
+            </p>
+        </field>
+    </record>
+
+    <record id="view_pos_reason_search" model="ir.ui.view">
+        <field name="name">pos.reason.filter</field>
+        <field name="model">pos.reason</field>
+        <field name="arch" type="xml">
+            <search string="Reason">
+                <field name="name" string="Reason"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="menu_action_pos_reason_form_open"
+              action="action_pos_reason_form"
+              parent="point_of_sale.menu_point_config_product"
+              groups="point_of_sale.group_pos_manager"
+              sequence="29"/>
+</odoo>

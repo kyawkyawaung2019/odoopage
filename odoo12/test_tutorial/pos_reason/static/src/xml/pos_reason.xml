@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="BuyingReasonButton">
+        <div class='control-button'>
+            <i class='fa fa-list' />
+            <t t-if="widget.pos.get_reason()">
+                <t t-esc="widget.pos.get_reason().name" />
+            </t>
+            <t t-if="!widget.pos.get_reason()">
+                Buying Reason
+            </t>
+        </div>
+    </t>
+</templates>

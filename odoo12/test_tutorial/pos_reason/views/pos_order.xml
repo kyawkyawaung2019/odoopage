@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_pos_reason_tree" model="ir.ui.view">
+            <field name="name">pos.order.reason.tree</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="reason_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_pos_reason_form" model="ir.ui.view">
+            <field name="name">pos.order.reason.form</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="reason_id" readonly="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
